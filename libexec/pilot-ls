@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Usage: pilot ls
+
+set -e
+
+# TODO: make pilot directory configurable?
+ls ~/.pilot | xargs -J % basename % .plist
