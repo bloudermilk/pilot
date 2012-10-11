@@ -23,6 +23,13 @@ libexec_path="$(abs_dirname "$0")"
 export _PILOT_ROOT="$(abs_dirname "$libexec_path")"
 export PATH="${libexec_path}:$PATH"
 
+if [ -z "${PILOT_ROOT}" ]; then
+  PILOT_ROOT="${HOME}/.pilot"
+else
+  PILOT_ROOT="${PILOT_ROOT%/}"
+fi
+export PILOT_ROOT
+
 command="$1"
 case "$command" in
 "" | "-h" | "--help" )

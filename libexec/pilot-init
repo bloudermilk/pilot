@@ -55,6 +55,8 @@ if [ -z "$print" ]; then
   exit 1
 fi
 
+mkdir -p "${PILOT_ROOT}/programs"
+
 echo "export PATH=\"\${PATH}:${_PILOT_ROOT}/bin\""
 
 case "$shell" in
