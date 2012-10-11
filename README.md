@@ -72,7 +72,7 @@ Pilot can be installed into directories other than ~/.pilot by setting the
 ```bash
 $ echo 'export PILOT_ROOT="~/Desktop/pilot"' >> ~/.bash_profile
 $ pilot install foobar.plist
-Installed a program named "foobar" into ~/.pilot/programs.
+Installed a program named "foobar" into ~/Desktop/pilot/programs.
 ```
 
 ## Credits
