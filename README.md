@@ -63,3 +63,13 @@ Once a program is started it can be stopped.
 ```bash
 $ pilot stop redis
 ```
+
+## Credits
+
+Pilot owes itself to the work of others that came before it:
+* @sstephenson and the 37signals crew for releasing [sub][sub].
+* @mperham for releasing [lunchy][lunchy], a very similar library written in
+  Ruby.
+
+[sub]: https://github.com/37signals/sub
+[lunchy]: https://github.com/mperham/lunchy
