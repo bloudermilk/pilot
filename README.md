@@ -67,9 +67,11 @@ $ pilot stop redis
 ## Credits
 
 Pilot owes itself to the work of others that came before it:
-* @sstephenson and the 37signals crew for releasing [sub][sub].
-* @mperham for releasing [lunchy][lunchy], a very similar library written in
-  Ruby.
+* [@sstephenson][sam] and the 37signals crew for releasing [sub][sub].
+* [@mperham][mike] for releasing [lunchy][lunchy], a very similar library
+  written in Ruby.
 
+[sam]: https://github.com/sstephenson
 [sub]: https://github.com/37signals/sub
+[mike]: https://github.com/mperham
 [lunchy]: https://github.com/mperham/lunchy
