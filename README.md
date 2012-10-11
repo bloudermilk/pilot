@@ -64,6 +64,15 @@ Once a program is started it can be stopped.
 $ pilot stop redis
 ```
 
+## Configuration
+
+Pilot can be installed into directories other than ~/.pilot by setting the
+`PILOT_ROOT` environment variable.
+
+```bash
+$ echo 'export PILOT_ROOT="~/Desktop/pilot"' >> ~/.bash_profile
+```
+
 ## Credits
 
 Pilot owes itself to the work of others that came before it:
