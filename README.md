@@ -41,7 +41,7 @@ Before you can manage your programs, you must install them.
 
 ```bash
 $ pilot install ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
-Created a program named "redis".
+Installed a program named "redis" into ~/.pilot/programs.
 ```
 
 Pilot will try to guess the name of the program you're installing based on the
@@ -49,7 +49,7 @@ filename, but you can specify one if you'd like.
 
 ```bash
 $ pilot install my.radical.program.plist -n foobar
-Created a program named "foobar".
+Installed a program named "foobar" into ~/.pilot/programs.
 ```
 
 Once a program is installed it can be started.
@@ -71,6 +71,8 @@ Pilot can be installed into directories other than ~/.pilot by setting the
 
 ```bash
 $ echo 'export PILOT_ROOT="~/Desktop/pilot"' >> ~/.bash_profile
+$ pilot install foobar.plist
+Installed a program named "foobar" into ~/.pilot/programs.
 ```
 
 ## Credits
