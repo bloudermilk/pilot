@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Usage: pilot stop <program>
+
+set -e
+
+PROGRAM="$1"
+
+launchctl unload `pilot-resolve $PROGRAM`

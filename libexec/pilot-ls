@@ -3,5 +3,5 @@
 
 set -e
 
-# TODO: make pilot directory configurable?
-ls ~/.pilot | xargs -J % basename % .plist
+ls ~/.pilot |\
+  xargs -J % basename % .plist

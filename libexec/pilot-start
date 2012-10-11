@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Usage: pilot start <program>
+
+set -e
+
+PROGRAM="$1"
+
+launchctl load -F `pilot-resolve $PROGRAM`

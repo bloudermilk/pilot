@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Usage: pilot resolve <search>
+
+set -e
+
+SEARCH="$1"
+
+PROGRAM=$(
+  ls ~/.pilot |\
+    grep -e "^$SEARCH$" -e "^$SEARCH.plist$" |\
+    tail -n 1
+)
+
+if [ -n "$PROGRAM" ]; then
+  echo $HOME/.pilot/$PROGRAM
+else
+  exit 1
+fi
