@@ -27,7 +27,7 @@ $ echo 'export PATH="$HOME/.pilot/bin:$PATH"' >> ~/.bash_profile
 
 3. Add pilot's initialization script to your shell to enable autocompletion.
 ```bash
-$ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+$ echo 'eval "$(pilot init -)"' >> ~/.bash_profile
 ```
 
 4. Restart your shell so changes take effect.
