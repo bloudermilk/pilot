@@ -33,6 +33,7 @@ if [[ -z "$name" ]]; then
   name=${filename##*.}
 fi
 
+# Install the script
 cp $plist "$PILOT_ROOT/programs/$name.plist"
 
 echo "Installed a program named \"$name\" into $PILOT_ROOT/programs"
