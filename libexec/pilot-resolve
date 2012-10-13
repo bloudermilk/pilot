@@ -6,13 +6,13 @@ set -e
 SEARCH="$1"
 
 PROGRAM=$(
-  ls ~/.pilot/programs |\
+  ls "$PILOT_ROOT/programs" |\
     grep -e "^$SEARCH$" -e "^$SEARCH.plist$" |\
     tail -n 1
 )
 
 if [ -n "$PROGRAM" ]; then
-  echo $HOME/.pilot/programs/$PROGRAM
+  echo $PILOT_ROOT/programs/$PROGRAM
 else
   exit 1
 fi

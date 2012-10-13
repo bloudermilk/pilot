@@ -1,8 +1,5 @@
 # Pilot for OS X
 
-**Warning:** This README is mostly a wishlist. This utility is still in early
-development.
-
 Pilot is a simple command line tool for OS X written in Bash that assists users
 in starting and stopping `launchctl` services that shouldn't run at boot or
 for any other reason without explicitly being started. It was built specifically

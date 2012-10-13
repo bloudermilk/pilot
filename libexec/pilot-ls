@@ -3,5 +3,5 @@
 
 set -e
 
-ls ~/.pilot |\
+ls "$PILOT_ROOT/programs" |\
   xargs -J % basename % .plist

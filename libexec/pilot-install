@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Usage: pilot install [-n name] <plist>
+
+set -e
+
+while getopts ":n:" opt; do
+  case $opt in
+    n)
+      name=OPTARG
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument" >&2
+      exit 1
+      ;;
+  esac
+done
+
+# Make $1 the first non-option argument
+shift $(($OPTIND - 1))
+
+plist=$1
+
+# If no name was passed 
+if [[ -z "$name" ]]; then
+  # Trim path and .plist extension from file path
+  filename=`basename $plist .plist`
+
+  # Split at "." and take last (http://stackoverflow.com/a/3162500/29297)
+  name=${filename##*.}
+fi
+
+cp $plist "$PILOT_ROOT/programs/$name.plist"
+
+echo "Installed a program named \"$name\" into $PILOT_ROOT/programs"
