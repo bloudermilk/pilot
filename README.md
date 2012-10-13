@@ -1,10 +1,7 @@
 # Pilot for OS X
 
-Pilot is a simple command line tool for OS X written in Bash that assists users
-in starting and stopping `launchctl` services that shouldn't run at boot or
-for any other reason without explicitly being started. It was built specifically
-to manage server-style programs (eg. Apache, PostgreSQL, MySQL, etc.) that I
-didn't want constantly running on my dev machine.
+Pilot is a simple command line tool for starting and stopping `launchctl`
+services on demand.
 
 ## Installation
 
@@ -45,7 +42,7 @@ Pilot will try to guess the name of the program you're installing based on the
 filename, but you can specify one if you'd like.
 
 ```bash
-$ pilot install my.radical.program.plist -n foobar
+$ pilot install -n foobar my.radical.program.plist
 Installed a program named "foobar" into ~/.pilot/programs.
 ```
 
@@ -60,6 +57,8 @@ Once a program is started it can be stopped.
 ```bash
 $ pilot stop redis
 ```
+
+Subcommands and arguments all support autocompletion out of the box. Fancy!
 
 ## Configuration
 
@@ -79,7 +78,11 @@ Pilot owes itself to the work of others that came before it:
 * [@mperham][mike] for releasing [lunchy][lunchy], a very similar library
   written in Ruby.
 
+Also a big thanks to [philosophie][philosophie] for sponsoring the development
+of pilot.
+
 [sam]: https://github.com/sstephenson
 [sub]: https://github.com/37signals/sub
 [mike]: https://github.com/mperham
 [lunchy]: https://github.com/mperham/lunchy
+[philosophie]: http://gophilosophie.com/
