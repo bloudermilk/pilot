@@ -4,4 +4,4 @@
 set -e
 
 ls "$PILOT_ROOT/programs" |\
-  xargs -J % basename % .plist
+  xargs -I {} basename {} .plist
