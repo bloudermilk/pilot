@@ -3,11 +3,40 @@
 
 set -e
 
+resolve_and_load_manifests() {
+  programs=`find_and_expand_manifests`
+  if [ -z "$programs" ]; then
+    echo No program specified and no .pilot-manifest files found
+    exit 1
+  else
+    for program in $programs; do
+      echo Loading $program
+      load_program $program
+    done
+  fi
+}
+
+find_and_expand_manifests() {
+  local root=`pwd`
+  { while [ -n "$root" ]; do
+      if [ -e "${root}/.pilot-manifest" ]; then
+        echo "`cat ${root}/.pilot-manifest`"
+      fi
+      root="${root%/*}"
+    done
+  } | sort | uniq
+}
+
+load_program() {
+  PROGRAM="$1"
+  launchctl load -F `pilot-resolve $PROGRAM`
+}
+
 # Provide pilot completions
 if [ "$1" = "--complete" ]; then
   exec pilot-ls
+elif [ "$1" != "" ]; then
+  load_program $1
+else
+  resolve_and_load_manifests
 fi
-
-PROGRAM="$1"
-
-launchctl load -F `pilot-resolve $PROGRAM`
