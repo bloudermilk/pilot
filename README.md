@@ -63,9 +63,9 @@ Subcommands and arguments all support autocompletion out of the box. Fancy!
 ### Manifest files
 
 You can easily define running requirements by placing a `.profile-manifest` in
-an individual application's root, or in any directory above it. Pilot will
-recursively climb your directory structure, finding and loading all manifest
-files.
+an individual application's root, or in any directory above it. This file
+should be a return separated list of programs. Pilot will recursively climb
+your directory structure, finding and loading all manifest files.
 
 Start all requirements:
 
@@ -77,6 +77,14 @@ And to stop them:
 
 ```bash
 $ pilot stop
+```
+
+#### Example manifest
+
+```
+postgresql
+redis
+memcached
 ```
 
 ## Configuration
