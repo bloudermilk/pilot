@@ -3,30 +3,9 @@
 
 set -e
 
-resolve_and_unload_manifests() {
-  directory=`pwd`
-  programs=`pilot-resolve-manifests $directory`
-  if [ -z "$programs" ]; then
-    echo No program specified and no .pilot-manifest files found
-    exit 1
-  else
-    for program in $programs; do
-      echo Stopping $program
-      unload_program $program
-    done
-  fi
-}
-
-unload_program() {
-  PROGRAM="$1"
-  launchctl unload `pilot-resolve $PROGRAM`
-}
-
 # Provide pilot completions
 if [ "$1" = "--complete" ]; then
   exec pilot-ls
-elif [ "$1" != "" ]; then
-  unload_program $1
 else
-  resolve_and_unload_manifests
+  pilot control unload $*
 fi
