@@ -62,7 +62,7 @@ Subcommands and arguments all support autocompletion out of the box. Fancy!
 
 ### Manifest files
 
-You can easily define running requirements by placing a `.profile-manifest` in
+You can easily define running requirements by placing a `.pilot-manifest` in
 an individual application's root, or in any directory above it. This file
 should be a return separated list of programs. Pilot will recursively climb
 your directory structure, finding and loading all manifest files.
@@ -79,7 +79,7 @@ And to stop them:
 $ pilot stop
 ```
 
-#### Example manifest
+#### Example `.pilot-manifest` file
 
 ```
 postgresql
