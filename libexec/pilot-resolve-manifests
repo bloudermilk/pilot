@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Usage: pilot resolve-manifests <search>
+
+set -e
+
+root=$1
+{ while [ -n "$root" ]; do
+    if [ -e "${root}/.pilot-manifest" ]; then
+      echo "`cat ${root}/.pilot-manifest`"
+    fi
+    root="${root%/*}"
+  done
+} | sort | uniq

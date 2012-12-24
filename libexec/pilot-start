@@ -4,7 +4,8 @@
 set -e
 
 resolve_and_load_manifests() {
-  programs=`find_and_expand_manifests`
+  directory=`pwd`
+  programs=`pilot-resolve-manifests $directory`
   if [ -z "$programs" ]; then
     echo No program specified and no .pilot-manifest files found
     exit 1
@@ -14,17 +15,6 @@ resolve_and_load_manifests() {
       load_program $program
     done
   fi
-}
-
-find_and_expand_manifests() {
-  local root=`pwd`
-  { while [ -n "$root" ]; do
-      if [ -e "${root}/.pilot-manifest" ]; then
-        echo "`cat ${root}/.pilot-manifest`"
-      fi
-      root="${root%/*}"
-    done
-  } | sort | uniq
 }
 
 load_program() {
