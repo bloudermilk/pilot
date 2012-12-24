@@ -60,6 +60,25 @@ $ pilot stop redis
 
 Subcommands and arguments all support autocompletion out of the box. Fancy!
 
+### Manifest files
+
+You can easily define running requirements by placing a `.profile-manifest` in
+an individual application's root, or in any directory above it. Pilot will
+recursively climb your directory structure, finding and loading all manifest
+files.
+
+Start all requirements:
+
+```bash
+$ pilot start
+```
+
+And to stop them:
+
+```bash
+$ pilot stop
+```
+
 ## Configuration
 
 Pilot can be installed into directories other than ~/.pilot by setting the
