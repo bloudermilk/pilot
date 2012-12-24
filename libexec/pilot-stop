@@ -6,8 +6,6 @@ set -e
 # Provide pilot completions
 if [ "$1" = "--complete" ]; then
   exec pilot-ls
+else
+  pilot control unload $*
 fi
-
-PROGRAM="$1"
-
-launchctl unload `pilot-resolve $PROGRAM`
