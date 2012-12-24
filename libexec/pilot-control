@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Usage: pilot control <load|unload> <program>
+
+set -e
+
+action=$1
+program=$2
+
+resolve_and_control_manifests() {
+  directory=`pwd`
+  programs=`pilot-resolve-manifests $directory`
+  if [ -z "$programs" ]; then
+    echo No program specified and no .pilot-manifest files found
+    exit 1
+  else
+    for program in $programs; do
+      if [ $action = "load" ]; then
+        verb="Starting"
+      else
+        verb="Stopping"
+      fi
+      echo $verb $program
+      control_program $program
+    done
+  fi
+}
+
+control_program() {
+  PROGRAM="$1"
+  launchctl $action -F `pilot-resolve $PROGRAM`
+}
+
+if [ "$program" != "" ]; then
+  control_program $program
+else
+  resolve_and_control_manifests
+fi
