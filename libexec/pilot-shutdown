@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Usage: pilot ls
+
+set -e
+
+programs=`ls "$PILOT_ROOT/programs" |\
+  xargs -I {} basename {} .plist`
+
+for program in $programs; do
+  echo Stopping $program
+  `pilot stop $program`
+done
