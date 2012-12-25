@@ -3,8 +3,7 @@
 
 set -e
 
-programs=`ls "$PILOT_ROOT/programs" |\
-  xargs -I {} basename {} .plist`
+programs=`pilot ls`
 
 for program in $programs; do
   echo Stopping $program
