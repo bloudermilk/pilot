@@ -1,7 +1,23 @@
 #!/usr/bin/env bash
 # Usage: pilot ls
 
-set -e
+# set -e
 
-ls "$PILOT_ROOT/programs" |\
-  xargs -I {} basename {} .plist
+all_programs() {
+  ls "$PILOT_ROOT/programs" |\
+    xargs -I {} basename {} .plist
+}
+
+option="$1"
+case "$option" in
+"" )
+  all_programs
+  ;;
+"-r" )
+  for program in `all_programs`; do
+    check_running=`launchctl list | grep $program`
+    if [ "" != "$check_running" ]; then
+      echo $program
+    fi
+  done
+esac
