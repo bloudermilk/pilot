@@ -112,16 +112,18 @@ Installed a program named "foobar" into ~/Desktop/pilot/programs.
 
 ## Credits
 
-Pilot was created by Brendan Loudermilk, but it wouldn't be anything without
-the following people:
+Pilot was created by Brendan Loudermilk ([@bloudermilk][me]), but it wouldn't
+be anything without the following people:
 
 * [@patbenatar][nick] for being (by far) the most active contributor.
 * [@sstephenson][sam], [@qrush][nick_q], and the 37signals crew for releasing
   [sub][sub], the framework that Pilot is built on.
 * [@mperham][mike] for releasing [lunchy][lunchy], a very similar library
   written in Ruby.
-* [philosophie][philosophie], my employer, for sponsoring the development
-  of Pilot and all of my open source work.
+
+Pilot is sponsored by [philosophie][philosophie], my employer.
+
+[![philosophie_logo](http://i.imgur.com/Vlda8.png)][philosophie]
 
 [sam]: https://github.com/sstephenson
 [sub]: https://github.com/37signals/sub
