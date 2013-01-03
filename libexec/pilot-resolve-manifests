@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Usage: pilot resolve-manifests <search>
+# Usage: pilot resolve-manifests <directory>
 
 set -e
 

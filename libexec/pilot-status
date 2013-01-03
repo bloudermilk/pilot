@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Usage: pilot status <search>
+
+set -e
+
+# Provide pilot completions
+if [ "$1" = "--complete" ]; then
+  exec pilot-ls
+elif [ -n "$1" ]; then
+  SEARCH=$1
+  PROGRAM_LABEL=`pilot resolve-label $SEARCH`
+
+  # grep exits with a failing code if no results found (not running)
+  GREP=`launchctl list | grep $PROGRAM_LABEL`
+
+  if [ -n "$GREP" ]; then
+    echo Running
+  fi
+fi

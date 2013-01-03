@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Usage: pilot resolve-label <search>
+
+set -e
+
+SEARCH="$1"
+
+PLIST=`pilot resolve $SEARCH`
+
+if [ -n "$PLIST" ]; then
+  echo `awk -F"[<>]" '/Label/ {getline;print $3;exit}' $PLIST`
+else
+  exit 1
+fi
