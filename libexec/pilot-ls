@@ -1,23 +1,43 @@
 #!/usr/bin/env bash
 # Usage: pilot ls
 
-# set -e
-
 all_programs() {
   ls "$PILOT_ROOT/programs" |\
     xargs -I {} basename {} .plist
 }
 
+programs_with_status() {
+  status=$1
+  for program in `all_programs`; do
+    pilot status $program > /dev/null
+    running=$?
+
+    if [ -z "$status" ]; then
+      if [ $running -eq 0 ]; then
+        echo -n "* "
+      else
+        echo -n "  "
+      fi
+    fi
+
+    if [ -z "$status" ] || [ $running -eq $status ]; then
+      echo "$program"
+    fi
+  done
+}
+
 option="$1"
 case "$option" in
 "" )
+  programs_with_status
+  ;;
+"-a" )
   all_programs
   ;;
 "-r" )
-  for program in `all_programs`; do
-    check_running=`launchctl list | grep $program`
-    if [ "" != "$check_running" ]; then
-      echo $program
-    fi
-  done
+  programs_with_status 0
+  ;;
+"-s" )
+  programs_with_status 1
+  ;;
 esac
