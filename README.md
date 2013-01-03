@@ -87,6 +87,18 @@ redis
 memcached
 ```
 
+### More fun things to do with Pilot!
+
+Stop all known programs
+```bash
+$ pilot shutdown
+```
+
+Check the running status of a given program
+```bash
+$ pilot status redis
+```
+
 ## Configuration
 
 Pilot can be installed into directories other than ~/.pilot by setting the
