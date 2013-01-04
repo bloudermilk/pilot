@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
-# Usage: pilot start <program>
+# Usage: pilot start [<program>]
+# Summary: Start the given program or start all programs specified by manifests
+#
+# Help: When called with a program, that program will be started.
+#
+# When called with no arguments, Pilot will recursively climb the directory
+# tree, finding all .pilot-manifest files, and start all programs declared in
+# them.
 
 set -e
 

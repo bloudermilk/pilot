@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Usage: pilot status <search>
+# Usage: pilot status <program>
+# Summary: Check the running status of the given program
 
 set -e
 

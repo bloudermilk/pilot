@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Usage: pilot ls
+# Usage: pilot shutdown
+# Summary: Stop all running programs
 
 set -e
 
