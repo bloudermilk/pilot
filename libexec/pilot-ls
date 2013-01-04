@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
-# Usage: pilot ls
+# Usage: pilot ls [-r|-s|-a]
+# Summary: List programs known to Pilot
+#
+# Help: List all programs with running indicators.
+#
+# Options:
+# -r List running programs.
+# -s List stopped programs.
+# -a List all programs without indicators.
 
 all_programs() {
   ls "$PILOT_ROOT/programs" |\

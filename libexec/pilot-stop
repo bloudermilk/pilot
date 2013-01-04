@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
-# Usage: pilot stop <program>
+# Usage: pilot stop [<program>]
+# Summary: Stop the given program or stop all programs specified by manifests
+#
+# Help: When called with a program, that program will be stopped.
+#
+# When called with no arguments, Pilot will recursively climb the directory
+# tree, finding all .pilot-manifest files, and stop all programs declared in
+# them.
 
 set -e
 

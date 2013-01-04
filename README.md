@@ -99,6 +99,11 @@ Check the running status of a given program
 $ pilot status redis
 ```
 
+List programs known to Pilot
+```bash
+$ pilot ls
+```
+
 ## Configuration
 
 Pilot can be installed into directories other than ~/.pilot by setting the
