@@ -3,7 +3,7 @@
 
 set -e
 
-programs=`pilot ls`
+programs=`pilot ls -r`
 
 for program in $programs; do
   echo Stopping $program
