@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Usage: pilot install [-n name] <plist>
-# Summary: Take flight! Install a program and let Pilot steer
+# Summary: Take off! Install a program and let Pilot fly
 
 set -e
 
