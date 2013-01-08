@@ -12,7 +12,7 @@ set -e
 
 # Provide pilot completions
 if [ "$1" = "--complete" ]; then
-  exec pilot-ls
+  exec pilot-ls -a
 else
   pilot control unload $*
 fi
