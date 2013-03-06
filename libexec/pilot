@@ -32,7 +32,10 @@ export PILOT_ROOT
 
 command="$1"
 case "$command" in
-"" | "-h" | "--help" )
+"" )
+  exec pilot-start
+  ;;
+"-h" | "--help" )
   exec pilot-help
   ;;
 * )
