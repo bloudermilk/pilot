@@ -13,6 +13,8 @@ set -e
 # Provide pilot completions
 if [ "$1" = "--complete" ]; then
   exec pilot-ls -a
+elif [ -z "`pilot ls -a`" ]; then
+  echo "You haven't installed any programs with pilot yet. Run 'pilot -h' to learn more."
 else
   pilot control load $*
 fi
